@@ -1,0 +1,4 @@
+.vscode/*
+libraries/*
+/src/Usb.h
+.DS_Store
