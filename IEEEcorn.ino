@@ -1,20 +1,20 @@
-/*
-    IEEEcorn by Chris Whitfill
-*/
-
 #include <Adafruit_NeoPixel.h>
 
 #define LED_PIN    6
 #define LED_COUNT 12
 
-void setup() {
-    Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGBW + NEO_KHZ800);
-    pinMode(LED_BUILTIN, OUTPUT);
-}
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
+void setup() {
+    strip.begin();
+    strip.show();
+}
 void loop() {
-    digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(1000);                       // wait for a second
-    digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-    delay(1000);  
+    for(int i = 0; i < LED_COUNT; i++) {
+        strip.setPixelColor(i, 220, 20, 0);
+        strip.show();
+        delay(50);
+        strip.setPixelColor(i, 0, 0, 0);
+        strip.show();
+    }
 }
