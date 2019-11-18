@@ -11,10 +11,14 @@ void setup() {
 }
 void loop() {
     for(int i = 0; i < LED_COUNT; i++) {
-        strip.setPixelColor(i, 220, 20, 0);
+        strip.setPixelColor(i, 255, 19, 0);
+        strip.setPixelColor((i + 2)%LED_COUNT, 255, 19, 0);
+
         strip.show();
-        delay(50);
+        delay(30);
         strip.setPixelColor(i, 0, 0, 0);
+        strip.setPixelColor((i + 2)%LED_COUNT, 0, 0, 0);
+
         strip.show();
     }
 }
